@@ -3,7 +3,12 @@ import re
 
 bcv = "http://www.bcv.org.ve/"
 
-content = urlopen(bcv)
+try:
+    content = urlopen(bcv)
+except:
+    print("Error on urllib work.")
+    print("The program will close.")
+    exit()
 
 text = content.read()
 text_decode = text.decode('utf-8')
@@ -23,10 +28,10 @@ def get_value(re_match):
     return value
 
 def show(u, d):
-    print("-------------------------")
+    print("---------------------------")
     print(f"$ BCV = {u} ")
     print(f"{d}")
-    print("-------------------------")
+    print("---------------------------")
 
 usd_v = get_value(usd)
 date_v = get_value(date)
