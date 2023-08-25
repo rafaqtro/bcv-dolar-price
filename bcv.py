@@ -35,5 +35,14 @@ def show(u, d):
 
 usd_v = get_value(usd)
 date_v = get_value(date)
-show(usd_v, date_v)
+
+#change the form nn,nn to nn.nn
+# ex 33,33 to 33.33
+usd_v2 = usd_v.replace(",",".")
+usd_float = float(usd_v2)
+usd_round = round(usd_float, 4)
+ 
+show(usd_round, date_v)
+
+
 
